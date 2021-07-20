@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OAAF{% endblock %}
+
+{% block body %}
+<!--MENU-->
+  <nav role="navigation">
+    <div id="menuToggle">
+      <input type="checkbox" />  
+        <span></span>
+        <span></span>
+        <span></span>
+      <ul id="menu">
+        <a href="#"><li>Accueil</li></a>
+        <a href="#"><li>Catégories</li></a>
+        <a href="#"><li>Nous contacter</li></a>
+      </ul>
+    </div>
+  </nav>
+<main>
+  <!--TITRE & LOGO-->
+  <div>
+    <div class="titreProjet">OAAF PROJECT</div>
+    <div class="logoProjet">LOGO</div>
+  </div>
+
+  <!--DESCRIPTION DU PROJET-->
+  <div class="description">
+    <p>Nous avons décidé de faire un site pour référencer divers restaurants sur Paris. <br>Plus que les restaurants que tout le monde connaît, vous pourrez trouver ici des lieux de restaurations de diverses nationalités. <br>Que vous vouliez profiter d’un lieu avec des plats typiques de vos origines ou que vous soyez en quête de nouveautés, nous espérons que vous trouverez votre bonheur ici.
+    Nous pensons également intégrer des indications pour que vous puissiez savoir si le restaurant dispose de menus vegan, végétarien ou sans gluten. Nous vous souhaitons une bonne visite.
+    </p><br><br>
+    <button class="entrez">ENTREZ</button>
+  </div>
+<!--CATEGORIES DE RESTAURANTS-->
+<div class="container">
+  <div class="img-categories1"><img src="images/categories2/Food-In-Lebanon.jpg" alt=""></div>
+  <div class="img-categories2"><img src="images/categories2/asiatique2.jpg" alt=""></div>
+  <div class="img-categories3"><img src="images/categories2/ameriquelatine2.jpg" alt=""></div>
+  <div class="img-categories4"><img src="images/categories2/europeene.jpg" alt=""></div>
+  <div class="img-categories5"><img src="images/categories2/creole.jpg" alt=""></div>
+  <div class="img-categories6"><img src="images/categories2/cuisineDuMonde.jpg" alt=""></div>
+</div>
+
+</main>
+{% endblock %}

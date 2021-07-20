@@ -1,0 +1,298 @@
+body
+{
+  margin: 0;
+  padding: 0;
+  width: 1350px;
+  
+  background-color: #eae7dc;
+  color: #cdcdcd;
+  font-family:'Lora', serif;
+
+}
+
+/*================================MENU HAMBURGER=====================================*/
+
+#menuToggle
+{
+  display: block;
+  position: relative;
+  top: 50px;
+  left: 50px;
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a
+{
+  text-decoration: none;
+  color: #8d8e8a;
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover
+{
+  color: white;
+}
+
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0;
+  z-index: 2; 
+  
+  -webkit-touch-callout: none;
+}
+
+
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: #8d8e8a;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #8d8e8a;
+}
+
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+
+#menu
+{
+  position: absolute;
+  width: 200px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  
+  background: #d8c3a5;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;   
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+
+nav{
+ width: 100%;
+}
+
+/*==============================BODY======================================*/
+.titreProjet, .logoProjet{
+ margin-left: 350px;
+ color: #8d8e8a;
+ text-align: center;
+}
+
+
+.description{
+   width: 100%;
+   margin: 250px 70px 70px;
+   text-align: center;
+   color: #8d8e8a;
+   font-size: 20px;
+}
+
+.container{
+ width: 100%;
+ height: 1500px;
+ padding: 50px 0px 80;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+}
+.img-categories1{
+width: 612px;
+height: 200px;
+}
+.img-categories2{
+ width: 612px;
+ height: 200px;
+}
+.img-categories3{
+ width: 612px;
+ height: 200px;
+}
+.img-categories4{
+ width: 612px;
+ height: 200px;
+}
+.img-categories5{
+ width: 612px;
+ height: 200px;
+}
+.img-categories6{
+ width: 612px;
+ height: 200px;
+}
+
+.img-mo{
+    width: 612px;
+    height: 200px;  
+}
+
+.entrez, .envoyer{
+   height: 40px;
+   width: 10%;
+   color: #8d8e8a;
+   background-color: #d8c3a5;
+   border: 4px solid #d8c3a5;
+   border-radius: 2px;
+   font-weight: bold;
+   font-size: 20px;
+   font-family: 'Lora', serif;
+   
+}
+
+.envoyer{
+ margin-left: 33%;
+}
+
+.entrez:hover, .envoyer:hover{
+   color: #fff !important;
+   background: #d8c3a5 !important;
+   border: 4px solid #d8c3a5 !important;
+}
+
+.formulaire-total{
+ width: 80%;
+}
+.formulaire{
+ display: block;
+ margin-left: 350px ;
+ height: 35px;
+ width: 70%;
+ padding: 0px 6px;
+ color: #8d8e8a;
+}
+
+p.formulaire{
+ font-size: xx-large;
+ color: #8d8e8a;
+}
+
+.suggestion{
+ font-size: xx-large;
+ color: #8d8e8a;
+ margin-left: 350px;
+}
+
+.msg-av-pr{
+ margin-left: 350px;
+}
+
+/*========================FOOTER=============================================*/
+footer{
+ padding:40px 0;
+ color:#8d8e8a;
+ text-align: center;
+}
+
+footer ul {
+ padding:0;
+ list-style:none;
+ text-align:center;
+ font-size:15px;
+ line-height:1.6;
+ margin-bottom:0;
+}
+
+footer li {
+ padding:0 10px;
+}
+
+footer ul a {
+ color:inherit;
+ text-decoration:none;
+ opacity:0.8;
+}
+
+.social{
+ text-align:center;
+ padding-bottom: 25px;
+}
+.social > a {
+ font-size:24px;
+ width:40px;
+ height:40px;
+ line-height:40px;
+ display:inline-block;
+ text-align:center;
+ border-radius:50%;
+ border:1px solid #ccc;
+ margin:0 8px;
+ color:inherit;
+ opacity:0.75;
+}
+
+footer .social > a:hover {
+ opacity:0.9;
+}
+.copyright{
+ margin-top:15px;
+ text-align:center;
+ font-size:13px;
+ color:#aaa;
+ margin-bottom:0;
+}
