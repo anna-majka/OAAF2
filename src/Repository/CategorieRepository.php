@@ -47,4 +47,13 @@ class CategorieRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findById($id)
+    {
+      // On passe par le QueryBuilder vide de l'EntityManager pour l'exemple
+      return $this->createQueryBuilder('c')
+                  ->where('c.id = :id')
+                  ->setParameter('id', $id)
+                  ->getQuery()
+                  ->getResult();
+    }
 }
