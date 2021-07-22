@@ -1,29 +1,12 @@
 <?php
-/*
 namespace App\DataFixtures;
 
-use Doctrine\Persistence\ObjectManager;
-use Doctrine\Bundle\FixturesBundle\Fixture;
-
-class AppFixtures extends Fixture
-{
-    public function load(ObjectManager $manager)
-    {
-        // $product = new Product();
-        // $manager->persist($product);
-
-        $manager->flush();
-    }
-}
-*/
-namespace App\DataFixtures;
-
-use App\Entity\Categorie;
+use Faker\Factory;
 use App\Entity\User;
-use Faker;
+use App\Entity\Categorie;
 use App\Entity\Restaurant;
-use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AppFixtures extends Fixture
@@ -40,7 +23,7 @@ class AppFixtures extends Fixture
         // $product = new Product();
         // $manager->persist($product);
 
-        $faker = Faker\Factory::create();
+        $faker = Factory::create();
 
         for($c=1; $c < 6; $c++){
             //création objet categorie pour pouvoir remplir categorie_id dans restaurant
@@ -68,7 +51,8 @@ class AppFixtures extends Fixture
             ->setNom("admin")
             ->setPassword($this->encoder->encodePassword($admin, "mdp_admin"))
             ->setRoles(['ROLE_ADMIN']);
-
+            
+        $manager->persist($admin);
         $manager->flush();
     }
 }

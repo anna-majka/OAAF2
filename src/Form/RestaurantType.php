@@ -2,9 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\Categorie;
 use App\Entity\Restaurant;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class RestaurantType extends AbstractType
@@ -18,12 +20,12 @@ class RestaurantType extends AbstractType
             ->add('nationalite')
             ->add('specificite')
             ->add('prix_moyen')
-            ->add('photo')
+            // ->add('photo')
             // pour faire un select de la catégorie
             ->add('categorie_id', EntityType::class, [
                 'label' => 'choisir une catégorie',
                 'placeholder' => '-- choisir  --',
-                'choice_label' => 'nom',
+                'choice_label' => 'cat',
                 'class' => Categorie::class
             ])
 

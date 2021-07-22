@@ -60,6 +60,11 @@ class Restaurant
      */
     private $categorie_id;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $publier;
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -157,6 +162,18 @@ class Restaurant
     public function setCategorieId(?Categorie $categorie_id): self
     {
         $this->categorie_id = $categorie_id;
+
+        return $this;
+    }
+
+    public function getPublier(): ?bool
+    {
+        return $this->publier;
+    }
+
+    public function setPublier(?bool $publier)
+    {
+        $this->publier = $publier;
 
         return $this;
     }
