@@ -29,6 +29,8 @@ class AdminController extends AbstractController
         ]);
     }
 
+
+
     /**
      * @Route("/restaurant/{id}/edit", name="admin_restaurant_edit", methods={"GET","POST"})
      */
@@ -50,3 +52,4 @@ class AdminController extends AbstractController
         ]);
     }
 }
+

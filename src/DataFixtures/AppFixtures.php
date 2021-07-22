@@ -1,4 +1,5 @@
 <?php
+
 namespace App\DataFixtures;
 
 use Faker\Factory;
@@ -46,11 +47,13 @@ class AppFixtures extends Fixture
     
             }
         }
+
         $admin = new User();
         $admin->setEmail("admin@gmail.com")
             ->setNom("admin")
             ->setPassword($this->encoder->encodePassword($admin, "mdp_admin"))
             ->setRoles(['ROLE_ADMIN']);
+
             
         $manager->persist($admin);
         $manager->flush();
@@ -74,3 +77,4 @@ class AppFixtures extends Fixture
 //     }
 // }
 // $manager->flush();
+
