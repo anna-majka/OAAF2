@@ -2,8 +2,8 @@
 /*
 namespace App\DataFixtures;
 
-use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Doctrine\Bundle\FixturesBundle\Fixture;
 
 class AppFixtures extends Fixture
 {
@@ -19,13 +19,22 @@ class AppFixtures extends Fixture
 namespace App\DataFixtures;
 
 use App\Entity\Categorie;
+use App\Entity\User;
 use Faker;
 use App\Entity\Restaurant;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AppFixtures extends Fixture
 {
+    private $encoder;
+
+    public function __construct(UserPasswordEncoderInterface $encoder)
+    {
+        $this->encoder = $encoder;
+    }
+
     public function load(ObjectManager $manager)
     {
         // $product = new Product();
@@ -54,7 +63,12 @@ class AppFixtures extends Fixture
     
             }
         }
-        
+        $admin = new User();
+        $admin->setEmail("admin@gmail.com")
+            ->setNom("admin")
+            ->setPassword($this->encoder->encodePassword($admin, "mdp_admin"))
+            ->setRoles(['ROLE_ADMIN']);
+
         $manager->flush();
     }
 }
