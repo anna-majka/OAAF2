@@ -2,19 +2,22 @@
 
 namespace App\Controller;
 
+use App\Entity\Categorie;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Restaurant;
 
 class CategorieController extends AbstractController
 {
     /**
-     * @Route("/categorie", name="categorie")
+     * @Route("/categorie", name="categories")
      */
-    public function index(): Response
+    public function liste(): Response
     {
-        return $this->render('categorie/index.html.twig', [
-            'controller_name' => 'CategorieController',
+        $categorie=$this->getDoctrine()->getRepository(Categorie::class)->findAll();
+        return $this->render('home/index.html.twig', [
+            'categories' => $categorie,
         ]);
     }
 }

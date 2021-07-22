@@ -1,20 +1,48 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}OAAF{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<!--MENU-->
+  <nav role="navigation">
+    <div id="menuToggle">
+      <input type="checkbox" />  
+        <span></span>
+        <span></span>
+        <span></span>
+      <ul id="menu">
+        <a href="#"><li>Accueil</li></a>
+        <a href="#"><li>Catégories</li></a>
+        <a href="#"><li>Nous contacter</li></a>
+      </ul>
+    </div>
+  </nav>
+<main>
+  <!--TITRE & LOGO-->
+  <div>
+    <div class="titreProjet">OAAF PROJECT</div>
+    <div class="logoProjet">LOGO</div>
+  </div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/anmaj/Documents/GitHub/OAAF2/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/anmaj/Documents/GitHub/OAAF2/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
+  <!--DESCRIPTION DU PROJET-->
+  <div class="description">
+    <p>Nous avons décidé de faire un site pour référencer divers restaurants sur Paris. <br>Plus que les restaurants que tout le monde connaît, vous pourrez trouver ici des lieux de restaurations de diverses nationalités. <br>Que vous vouliez profiter d’un lieu avec des plats typiques de vos origines ou que vous soyez en quête de nouveautés, nous espérons que vous trouverez votre bonheur ici.
+    Nous pensons également intégrer des indications pour que vous puissiez savoir si le restaurant dispose de menus vegan, végétarien ou sans gluten. Nous vous souhaitons une bonne visite.
+    </p><br><br>
+    <button class="entrez">ENTREZ</button>
+  </div>
+<!--CATEGORIES DE RESTAURANTS-->
+<div class="container">
+  <div class="row d-flex justify-content-center text-center">
+    {% for categorie in categories %}
+        <div class="card m-1" style="width: 18rem;">
+            <div class="card-body">
+            <h5 class="card-title">{{categorie.cat}}</h5>
+            <a href="{{path('restaurant_par_cat',{cat:categorie.id})}}" class="card-link">Voir les RESTAURANTS</a>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
 </div>
+</main>
 {% endblock %}

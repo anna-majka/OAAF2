@@ -2,8 +2,6 @@ body
 {
   margin: 0;
   padding: 0;
-  width: 1350px;
-  
   background-color: #eae7dc;
   color: #cdcdcd;
   font-family:'Lora', serif;
@@ -139,58 +137,33 @@ nav{
 }
 
 /*==============================BODY======================================*/
-.titreProjet, .logoProjet{
- margin-left: 350px;
+
+.titreProjet{
  color: #8d8e8a;
- text-align: center;
 }
+
+/*.logoProjet{
+  color: #8d8e8a;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  align-items: center;
+  
+ }*/
 
 
 .description{
-   width: 100%;
-   margin: 250px 70px 70px;
-   text-align: center;
    color: #8d8e8a;
-   font-size: 20px;
 }
 
-.container{
+/*.container{
  width: 100%;
- height: 1500px;
  padding: 50px 0px 80;
  display: flex;
  flex-direction: column;
  justify-content: center;
-}
-.img-categories1{
-width: 612px;
-height: 200px;
-}
-.img-categories2{
- width: 612px;
- height: 200px;
-}
-.img-categories3{
- width: 612px;
- height: 200px;
-}
-.img-categories4{
- width: 612px;
- height: 200px;
-}
-.img-categories5{
- width: 612px;
- height: 200px;
-}
-.img-categories6{
- width: 612px;
- height: 200px;
-}
+}*/
 
-.img-mo{
-    width: 612px;
-    height: 200px;  
-}
 
 .entrez, .envoyer{
    height: 40px;
@@ -296,3 +269,4 @@ footer .social > a:hover {
  color:#aaa;
  margin-bottom:0;
 }
+/*----------------------------RESPONSIVE WEB DESIGN-------------------------------- */
