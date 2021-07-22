@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fiche Restaurant{% endblock %}
+
+{% block body %}
+{% for restaurant in restaurants %}
+<div class="show-article">
+    <h2>{{restaurant.nom}}</h2>
+    <h3>{{restaurant.adresse}}</h3>
+    <h4>{{restaurant.nationalite}}</h4>
+    <p>{{restaurant.description}}</p>
+    <a href="{{path('restaurant_show',{id:restaurant.id})}}" class="card-link">Voir le RESTAURANT</a>
+</div>
+{% else %}
+<p> Pas d'entrées trouvées </p>
+{% endfor %}
+{% endblock %}
