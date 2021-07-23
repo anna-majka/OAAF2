@@ -3,8 +3,13 @@
 {% block title %}Restaurant{% endblock %}
 {% block stylesheets %}{% endblock %}
 {% block body %}
-    <h1>Restaurant</h1>
+<div class="container">
+<div class="row">
+    <div class="col"><h1>Restaurant</h1></div>
+</div>
 
+<div class="row">
+<div class="col-md-4">
     <table class="table">
         <tbody>
             <tr>
@@ -35,6 +40,10 @@
                 <th>Prix_moyen</th>
                 <td>{{ restaurant.prixMoyen }}</td>
             </tr>
+</div>
+</div>
+<div class="row">
+<div class="col-md-4">
             <tr>
                 <th>Photo</th>
                 <td><img src="{{ restaurant.photo }}" alt="photo de {{ restaurant.nom }}"></td>
@@ -47,4 +56,8 @@
     <a href="{{ path('restaurant_edit', {'id': restaurant.id}) }}">edit</a>
 
     {{ include('restaurant/_delete_form.html.twig') }}
+
+</div>
+</div>
+</div>
 {% endblock %}
