@@ -7,7 +7,9 @@ use App\Entity\Restaurant;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class RestaurantType extends AbstractType
 {
@@ -20,10 +22,47 @@ class RestaurantType extends AbstractType
             ->add('nationalite')
             ->add('specificite')
             ->add('prix_moyen')
-            // ->add('photo')
+            ->add('photo', FileType::class, [
+                'label' => 'Ajouter une photo',
+                'mapped' => false,
+                'required' => false,
+                'multiple' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '2048K',
+                            'mimeTypes' => [
+                                'image/png',
+                                'image/jpg',
+                                'image/jpeg',
+                                'image/gif'
+                            ]
+                    ])
+                ]
+                ])
+                // ->add('path', FileType::class, [
+                //     'mapped' => false,
+                //     'required' => true,
+                //     'multiple' => false,
+                //     'label' => "uploader votre image",
+                //     'attr' => [
+                //         'placeholder' => "parcourir pour trouver l'image"
+                //     ],
+                //     'constraints' => [
+                //         new File([
+                //             'maxSize' => '2048K',
+                //             'mimeTypes' => [
+                //                 'image/png',
+                //                 'image/jpg',
+                //                 'image/jpeg',
+                //                 'image/gif'
+                //             ]
+                //         ])
+                //     ]
+                // ])
+    
             // pour faire un select de la catégorie
             ->add('categorie_id', EntityType::class, [
-                'label' => 'choisir une catégorie',
+                'label' => 'Choisir une catégorie',
                 'placeholder' => '-- choisir  --',
                 'choice_label' => 'cat',
                 'class' => Categorie::class
