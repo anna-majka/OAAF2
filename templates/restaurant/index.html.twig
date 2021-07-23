@@ -3,7 +3,7 @@
 {% block title %}Restaurant index{% endblock %}
 
 {% block body %}
-    <h1>Restaurant index</h1>
+    <div class="container"><div class="col text-center pb-5"><h1>Nom de categories</h1></div></div>
 
     <table class="table">
         <thead>
@@ -21,6 +21,26 @@
         </thead>
         <tbody>
         {% for restaurant in restaurants %}
+        <div class="container">
+            <div class="row align-items-start">
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="../images/categories2/Food-In-Lebanon.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ restaurant.nom }}</h5>
+                                <p class="card-text">{{ restaurant.description }}</p>
+                            </div>
+                            <div class="card-body">
+                                <a href="{{ path('restaurant_show', {'id': restaurant.id}) }}">show</a>
+                                <a href="{{ path('restaurant_edit', {'id': restaurant.id}) }}">edit</a>
+                            </div>
+                    </div>
+        
+                </div>
+            </div>
+        </div>
+        
+
             <tr>
                 <td>{{ restaurant.id }}</td>
                 <td>{{ restaurant.nom }}</td>
