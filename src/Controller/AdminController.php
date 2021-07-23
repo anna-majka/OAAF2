@@ -49,28 +49,9 @@ class AdminController extends AbstractController
                 $imagesDirectory = "images/uploads/";
                 // donc, on commence par récuperer ce qui a été uploadé
                 $imageFile = $form->get('photo')->getData();
-                if ( $oldFile !=null ){
-                    dd($oldFile);
-                    unlink($oldFile);
-                    $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
-                    // on crée un nom unique de stockage du fichier
-                    $safeFileName = $slugger->slug($originalFilename);
-                    $finalFilename = $safeFileName . '-' . uniqid() . '.' . $imageFile->guessExtension();
-                    // on essaye de deplacer le fichier à sa place finale, sur le serveur
-                    $imageFile->move($imagesDirectory, $finalFilename);
-                    // et bien sur on n'oubli pas de mettre à jour le path dans l'objet image
-                    // petite astuce pour ne pas avoir à remettre le dossier dans twig - l'image s'affiche directement
-                    $completeFileName = "$imagesDirectory$finalFilename";
-                    $restaurant->setPhoto($completeFileName);
-                    
-                }else{ // aucune nouvelle image envoyée
-                    //on recupère l'ancienne image
-                    $restaurant->setPhoto( $restaurant->getPhoto() );
-                }
                 // on test, au cas ou
-                if ("$imagesDirectory$imageFile" == $oldFile) {
-                    dd($oldFile);
-                    unlink($oldFile);
+                if ($imageFile) {
+                    // unlink("$oldFile");
                     $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
                     // on crée un nom unique de stockage du fichier
                     $safeFileName = $slugger->slug($originalFilename);
