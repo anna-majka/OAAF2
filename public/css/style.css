@@ -7,6 +7,19 @@ body
   font-family:'Lora', serif;
 
 }
+a:link { text-decoration: none; color: #8d8e8a; }
+
+a:visited { text-decoration: none; color: #8d8e8a;}
+
+a:hover { text-decoration: none; color: #8d8e8a;}
+
+a:active { text-decoration: none; color: #8d8e8a;}
+
+a:hover{
+  color: #fff !important;
+   background: #d8c3a5 !important;
+   border: 4px solid #d8c3a5 !important;
+}
 
 /*================================MENU HAMBURGER=====================================*/
 /*
@@ -136,6 +149,7 @@ nav{
  width: 100%;
 }
 */
+/*==============================HEADER======================================*/
 .menu{
   height: 40px;
    width: 15%;
