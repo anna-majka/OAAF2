@@ -1,11 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{parent()}} - Restaurant index{% endblock %}
+
+
+{% block title %}Restaurant index{% endblock %}
+{% block stylesheets %}{% endblock %}
+
 
 {% block body %}
-    <h1>Restaurant index</h1>
+    <div class="container"><div class="col text-center pb-5"><h1>Nom de categories</h1></div></div>
 
-    <table class="table">
+    {#<table class="table">
         <thead>
             <tr>
                 <th>Id</th>
@@ -18,9 +22,29 @@
                 <th>Photo</th>
                 <th>actions</th>
             </tr>
-        </thead>
+        </thead>#}
         <tbody>
         {% for restaurant in restaurants %}
+        <div class="container">
+            <div class="row align-items-start">
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="../images/categories2/Food-In-Lebanon.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ restaurant.nom }}</h5>
+                                <p class="card-text">{{ restaurant.description }}</p>
+                            </div>
+                            <div class="card-body">
+                                <a href="{{ path('restaurant_show', {'id': restaurant.id}) }}">show</a>
+                                <a href="{{ path('restaurant_edit', {'id': restaurant.id}) }}">edit</a>
+                            </div>
+                    </div>
+        
+                </div>
+            </div>
+        </div>
+        
+{# 
             <tr>
                 <td>{{ restaurant.id }}</td>
                 <td>{{ restaurant.nom }}</td>
@@ -36,7 +60,7 @@
                     <a href="{{ path('restaurant_edit', {'id': restaurant.id}) }}">Modifier</a>
                     {% endif %}
                 </td>
-            </tr>
+            </tr>#}
         {% else %}
             <tr>
                 <td colspan="9">Pas de restaurants</td>
@@ -44,6 +68,8 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('restaurant_new') }}">Proposer un restaurant</a>
+  <div calss="row"><div class="col text-center pb-5 pt-5"><button class="envoyer" type="submit">
+        <a href="{{ path('restaurant_new') }}">Create new</a>
+    </button></div></div>
+ 
 {% endblock %}

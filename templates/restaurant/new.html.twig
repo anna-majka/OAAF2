@@ -3,9 +3,16 @@
 {% block title %}New Restaurant{% endblock %}
 
 {% block body %}
-    <h1>Proposer un Restaurant</h1>
 
-    {{ include('restaurant/_form.html.twig') }}
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col">
+                <h1>Create new Restaurant</h1>
 
-    <a href="{{ path('restaurant_index') }}">Retour à la liste</a>
+                 <div class="col">{{ include('restaurant/_form.html.twig') }}</div>
+                <a href="{{ path('restaurant_index') }}">back to list</a>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

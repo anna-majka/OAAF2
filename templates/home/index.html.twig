@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{#{% extends 'base.html.twig' %}
 
 {% block title %}OAAF{% endblock %}
 
@@ -45,4 +45,54 @@
     </div>
 </div>
 </main>
+{% endblock %}#}
+{% extends 'base.html.twig' %}
+
+{% block title %}OAAF{% endblock %}
+
+{% block body %}
+<!--MENU-->
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <button class="dropdown-item" type="button">Accueil</button>
+    <button class="dropdown-item" type="button">Catégories</button>
+    <button class="dropdown-item" type="button">Contactez-nous</button>
+  </div>
+</div>
+
+
+  <!--TITRE & LOGO-->
+  <div class="header overflow-hidden">
+    <div class="col text-center pb-3"><h2>OAAF PROJECT</h2></div>
+    <div class="row"><div class="col text-center pb-5"><img src="images/icons/oaafLogo.png" alt="Logo OAAF"></div></div>
+  </div>
+<div class="container">
+    <!--DESCRIPTION DU PROJET-->
+    <div class="col text-center pb-5">
+      <h4>Nous avons décidé de faire un site pour référencer divers restaurants sur Paris. Plus que les restaurants que tout le monde connaît, vous pourrez trouver ici des lieux de restaurations de diverses nationalités. Que vous vouliez profiter d’un lieu avec des plats typiques de vos origines ou que vous soyez en quête de nouveautés, nous espérons que vous trouverez votre bonheur ici.
+      Nous pensons également intégrer des indications pour que vous puissiez savoir si le restaurant dispose de menus vegan, végétarien ou sans gluten. Nous vous souhaitons une bonne visite.
+      </h4>
+      <!--<button class="entrez">ENTREZ</button><br><br><br>-->
+    </div>
+  <!--CATEGORIES DE RESTAURANTS-->
+  <div class="container overflow-hidden">
+    <div class="row"><h1 class="col text-center">Cuisine du Moyen Orient</h1></div>
+    <div class="row"><div class="col text-center pb-5"><img src="images/categories2/Food-In-Lebanon.jpg" alt=""></div></div>
+    <div class="row"><h1 class="col text-center">Cuisine Asiatique</h1></div>
+    <div class="row"><div class="col text-center pb-5"><img src="images/categories2/asiatique2.jpg" alt=""></div></div>
+    <div class="row"><h1 class="col text-center">Cusine d'Amerique Latine</h1></div>
+    <div class="row gy-7"><div class="col text-center pb-5"><img src="images/categories2/ameriquelatine2.jpg" alt=""></div></div>
+    <div class="row"><h1 class="col text-center">Cusine Européenne</h1></div>
+    <div class="row gy-7"><div class="col text-center pb-5"><img src="images/categories2/europeene.jpg" alt=""></div></div>
+    <div class="row"><h1 class="col text-center">Cuisine Créole</h1></div>
+    <div class="row gy-7"><div class="col text-center pb-5"><img src="images/categories2/creole.jpg" alt=""></div></div>
+    <div class="row"><h1 class="col text-center">Cusines du Monde</h1></div>
+    <div class="row gy-7"><div class=" col text-center pb-5"><img src="images/categories2/cuisineDuMonde.jpg" alt=""></div></div>
+  </div>
+
+</div>
+</div>
+
+
 {% endblock %}

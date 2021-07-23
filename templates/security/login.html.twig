@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title %}Connectez-vous{% endblock %}
+
 
 {% block body %}
 <form method="post">
@@ -10,20 +12,21 @@
 
     {% if app.user %}
         <div class="mb-3">
-            Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Déconnexion</a>
+            Vous êtes inscrit en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
         </div>
     {% endif %}
-
-    <h1 class="h3 mb-3 font-weight-normal">Connectez-vous</h1>
-    <label for="inputEmail">Email</label>
+    <div class="container">
+    <div class="row"><div class="col text-center pb-5 pt-5"><h1 class="h3 mb-3 font-weight-normal">Connectez-vous</h1></div></div>
+    <div class="row"><div class="col text-center pb-2 pt-2"><label for="inputEmail">Email</label></div></div>
     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Mot de passe</label>
+    <div calss="row"><div class="col text-center pb-2 pt-4"><label for="inputPassword">Mot de passe</label></div></div>
+
     <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
     >
-
+    </div>
     {#
         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
         See https://symfony.com/doc/current/security/remember_me.html
@@ -35,8 +38,10 @@
         </div>
     #}
 
-    <button class="btn btn-lg btn-primary" type="submit">
-        Se connecter
-    </button>
+
+    <div calss="row"><div class="col text-center pb-2 pt-4"><button class="envoyer" type="submit">{#<!--ANCIENNE CLASSE DE BOUTOON : btn btn-lg btn-primary-->#}
+        Soumettre
+    </button></div></div>
+
 </form>
-{% endblock %}
+{% endblock %} 

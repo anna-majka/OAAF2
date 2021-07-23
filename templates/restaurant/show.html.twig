@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{parent()}} - Restaurant{% endblock %}
+{% block title %}Restaurant{% endblock %}
+{% block stylesheets %}{% endblock %}
 
 {% block body %}
 <div class="container">
@@ -43,6 +44,11 @@
 </div>
 </div>
 
+
+
+<div class="row">
+<div class="col-md-4">
+
             <tr>
                 <th>Photo</th>
                 <td><img src="{{ restaurant.photo }}" alt="photo de {{ restaurant.nom }}"></td>
@@ -56,6 +62,8 @@
     <a href="{{ path('restaurant_edit', {'id': restaurant.id}) }}">Modifier</a>
     {{ include('restaurant/_delete_form.html.twig') }}
 
+
     {% endif %}
+
 
 {% endblock %}
