@@ -3,11 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Restaurant;
+use App\Form\RestaurantType;
+use App\Repository\RestaurantRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Form\RestaurantType;
 
 /*par defaut met admin devant toutes les routes de ce 
 controller car elles 
@@ -49,6 +50,19 @@ class AdminController extends AbstractController
         return $this->renderForm('admin/form.html.twig', [
             'restaurant' => $restaurant,
             'form' => $form,
+        ]);
+    }
+
+    /**
+     * @Route("/restaurants_a_valider", name="admin_restaurant_a_valid", methods={"GET"})
+     */
+    public function validation(RestaurantRepository $restaurantRepository): Response
+    {
+        $restaurants = $restaurantRepository->findBy([
+            'publier' => null
+        ]);
+        return $this->render('restaurant/a_valider.html.twig', [
+            'restaurants' => $restaurants,
         ]);
     }
 }

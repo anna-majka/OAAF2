@@ -6,10 +6,11 @@ use App\Entity\Categorie;
 use App\Entity\Restaurant;
 use App\Form\RestaurantType;
 use App\Repository\RestaurantRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/restaurant")
@@ -45,7 +46,7 @@ class RestaurantController extends AbstractController
     /**
      * @Route("/new", name="restaurant_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, SluggerInterface $slugger): Response
     {
         $restaurant = new Restaurant();
         $form = $this->createForm(RestaurantType::class, $restaurant);
@@ -53,6 +54,22 @@ class RestaurantController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $imagesDirectory = "images/uploads/";
+            // donc, on commence par récuperer ce qui a été uploadé
+            $imageFile = $form->get('photo')->getData();
+            // on test, au cas ou
+            if ($imageFile) {
+                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                // on crée un nom unique de stockage du fichier
+                $safeFileName = $slugger->slug($originalFilename);
+                $finalFilename = $safeFileName . '-' . uniqid() . '.' . $imageFile->guessExtension();
+                // on essaye de deplacer le fichier à sa place finale, sur le serveur
+                $imageFile->move($imagesDirectory, $finalFilename);
+                // et bien sur on n'oubli pas de mettre à jour le path dans l'objet image
+                // petite astuce pour ne pas avoir à remettre le dossier dans twig - l'image s'affiche directement
+                $completeFileName = "$imagesDirectory$finalFilename";
+                $restaurant->setPhoto($completeFileName);
+            }
             $entityManager->persist($restaurant);
             $entityManager->flush();
 
