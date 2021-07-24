@@ -25,7 +25,7 @@
         </thead>#}
         <tbody>
         {% for restaurant in restaurants %}
-        <div class="container">
+        <div class="container par_cat">
             <div class="row align-items-start">
                 <div class="col">
                     <div class="card" style="width: 18rem;">
@@ -70,8 +70,8 @@
         {% endfor %}
         </tbody>
     </table>
-  <div calss="row"><div class="col text-center pb-5 pt-5"><button class="envoyer" type="submit">
-        <a href="{{ path('restaurant_new') }}">Create new</a>
+  <div class="row"><div class="col text-center pb-5 pt-5"><button class="btn btn-secondary" type="submit">
+        <a href="{{ path('restaurant_new') }}">Create new</a><!--CHANGER A HREF EN BOUTTON SI POSSIBLE, SINON IL S'AFFICHE BIZARREMENT-->
     </button></div></div>
  
 {% endblock %}

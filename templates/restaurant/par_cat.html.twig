@@ -1,17 +1,40 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title %}Fiche Restaurant{% endblock %}
+{% block stylesheets %}{% endblock %}
 
 {% block body %}
 {% for restaurant in restaurants %}
-<div class="show-article">
-    <h2>{{restaurant.nom}}</h2>
-    <h3>{{restaurant.adresse}}</h3>
-    <h4>{{restaurant.nationalite}}</h4>
-    <p>{{restaurant.description}}</p>
-    <a href="{{path('restaurant_show',{id:restaurant.id})}}" class="card-link">Voir le RESTAURANT</a>
+<div class="container par_cat">
+            <div class="row align-items-center">
+                <div class="col-6 pb-5 text-center">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{restaurant.photo}}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ restaurant.nom }}</h5>
+                                <p class="card-text">{{ restaurant.description }}</p>
+                            </div>
+                            <div class="card-body">
+                                <a href="{{ path('restaurant_show', {'id': restaurant.id}) }}">Voir le restaurant</a>
+                                {% if is_granted("ROLE_ADMIN") %}
+                                <a href="{{ path('admin_restaurant_edit', {'id': restaurant.id}) }}">Modifier</a>
+                                {% endif %}
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+                        {#<div class="show-article">
+                        <h2>{{restaurant.nom}}</h2>
+                        <h3>{{restaurant.adresse}}</h3>
+                        <h4>{{restaurant.nationalite}}</h4>
+                        <p>{{restaurant.description}}</p>
+                        <a href="{{path('restaurant_show',{id:restaurant.id})}}" class="card-link">Voir le RESTAURANT</a>#}
 </div>
+
 {% else %}
 <p> Pas d'entrées trouvées </p>
+
 {% endfor %}
 {% endblock %}
