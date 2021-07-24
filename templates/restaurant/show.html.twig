@@ -6,11 +6,11 @@
 {% block body %}
 <div class="container">
 <div class="row">
-    <div class="col"><h1>Restaurant</h1></div>
+    <div class="col-4 px-5"><h1>Restaurant</h1></div>
 </div>
 
 <div class="row">
-<div class="col-md-4">
+<div class="col-4 px">
     <table class="table">
         <tbody>
             <tr>
@@ -41,20 +41,23 @@
                 <th>Prix_moyen</th>
                 <td>{{ restaurant.prixMoyen }}</td>
             </tr>
+            </tbody>
+            </table>
+            
 </div>
 </div>
 
 
 
 <div class="row">
-<div class="col-md-4">
+<div class="col-4 paddingBottom">
 
-            <tr>
-                <th>Photo</th>
-                <td><img src="{{ restaurant.photo }}" alt="photo de {{ restaurant.nom }}"></td>
-            </tr>
-        </tbody>
-    </table>
+            
+             
+                <img src="{{ restaurant.photo }}" alt="photo de {{ restaurant.nom }}">
+            
+        
+    
 
     <a href="{{ path('restaurant_index') }}">Retour à la liste</a>
 
@@ -64,6 +67,7 @@
 
 
     {% endif %}
-
+</div>
+</div>
 
 {% endblock %}

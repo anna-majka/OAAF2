@@ -21,6 +21,11 @@ a:hover{
    border: 4px solid #d8c3a5 !important;
 }
 
+.blanc{
+  text-decoration: none;
+  color: white;
+}
+
 /*================================MENU HAMBURGER=====================================*/
 /*
 #menuToggle
@@ -240,6 +245,19 @@ p.formulaire{
  margin-left: 350px;
 }
 
+
+/*============CATEGORIES=========================*/
+
+.par_cat{
+  display: flex;
+  justify-content: center;
+}
+
+/*------------------------------FICHE RESTAURANT-------------------------*/
+.paddingBottom{
+  margin-bottom: 20px;
+}
+
 /*========================FOOTER=============================================*/
 footer{
  padding:40px 0;
@@ -295,3 +313,8 @@ footer .social > a:hover {
  margin-bottom:0;
 }
 /*----------------------------RESPONSIVE WEB DESIGN-------------------------------- */
+
+@media(max-width: 375px) {
+  
+
+}
