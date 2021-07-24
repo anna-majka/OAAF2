@@ -69,7 +69,7 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('restaurant_index', [], Response::HTTP_SEE_OTHER);
         }
     
-        return $this->renderForm('admin/form.html.twig', [
+        return $this->renderForm('admin/formmodif .html.twig', [
             'restaurant' => $restaurant,
             'form' => $form,
         ]);
