@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier Restaurant{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col">
+                <h1>Modifier le Restaurant</h1>
+
+                 <div class="col">{{ include('admin/form.html.twig') }}</div>
+                <a href="{{ path('restaurant_index') }}">Retour à la</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

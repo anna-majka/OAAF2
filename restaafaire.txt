@@ -1,0 +1,71 @@
+De Fatoumata à tout le monde:  10:46 AM
+https://github.com/olaferlandsen/FileUpload-for-PHP
+https://sharemycode.fr/v4h
+De Fatoumata à tout le monde:  11:32 AM
+https://stackoverflow.com/questions/51548230/how-to-limit-the-upload-size-in-symfony
+De Zoom Session 910 à tout le monde:  11:43 AM
+->add('path', FileType::class, [
+                'mapped' => false,
+                'required' => true,
+                'multiple' => false,
+                'label' => "uploader votre image",
+                'attr' => [
+                    'placeholder' => "parcourir pour trouver l'image"
+                ],
+                'constraints' => [
+                    new File([
+                        'maxSize' => '2048K',
+                        'mimeTypes' => [
+                            'image/png',
+                            'image/jpg',
+                            'image/jpeg',
+                            'image/gif'
+                        ]
+                    ])
+                ]
+            ])
+De Zoom Session 910 à tout le monde:  11:49 AM
+https://github.com/JeffNys/upFile
+De Alexandra Eguiluz à tout le monde:  02:56 PM
+Hola?
+De Zoom Session 910 à tout le monde:  02:56 PM
+oui, mais on entend rien
+mais je n'entends rien de personne
+De Anna Majka à tout le monde:  02:56 PM
+nous on vous entend
+De Zoom Session 910 à tout le monde:  02:57 PM
+et vous vous entendez entre vous?
+De Alexandra Eguiluz à tout le monde:  02:57 PM
+oui
+De Anna Majka à tout le monde:  02:57 PM
+oui
+De Orianne à tout le monde:  02:57 PM
+oui
+De Zoom Session 910 à tout le monde:  02:57 PM
+ok, le problème vient de moi, un instant
+De Zoom Session 910 à tout le monde:  03:08 PM
+https://docs.github.com/en/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line
+De Dieynaba Wague à tout le monde:  03:40 PM
+tous le jury est en distanciel ?
+On a une date pour le passage du titre ?
+merci bonnes vacances
+De Fatoumata à tout le monde:  04:13 PM
+https://sharemycode.fr/v4h
+De Zoom Session 910 à tout le monde:  04:39 PM
+unlink($this->imagesDirectory . '/' . $oldFile);
+$oldFile = $restaurant->getPhot();
+unlink($imagesDirectory . '/' . $oldFile);
+De Orianne à tout le monde:  06:09 PM
+//insérer données / faker / fixtures -- fini 22/07 12:06
+création liens fonctionnels entre les pages:
+    -//lier page acceuil>catégorie>resto -- fini 22/07 16:10
+    -création formulaire contact/ suggestion resto
+    -lien entre menu et formulaire
+//création page admin avec possibilité insérer/modifier resto (photo) -- fini 22/07 18:17
+création page connexion/inscription pour les utilisateurs -- fini 23/07 14:30
+lien fontawesome
+crud pour categorie
+make:form pour restaurant - formulaire avec champ publier -- fini 22/07 17:15
+
+image: entité ou possibilité de l'insérer directement dans notre champ photo? -- fini 23/07 13:10
+    image sur formulaire edit - il faut effacer la photo pour pouvoir la remplacer/(delete?)
