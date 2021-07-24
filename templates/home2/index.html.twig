@@ -15,21 +15,13 @@
     </div>
   <!--CATEGORIES DE RESTAURANTS-->
   <div class="container overflow-hidden">
-    <div class="row"><h1 class="col text-center">Cuisine du Moyen Orient</h1>
-    <H1>BONJOUR</H1>
+    {% for categorie in categories %}
+      <h1>{{ categorie.cat }}</h1>
+      <img src="{{ categorie.photo }}" alt="photo de {{ categorie.cat }}">
+      <h2>{{ categorie.description }}</h2>
+      <a href="{{ path('restaurant_par_cat', {'cat': categorie.id}) }}">Voir la catégorie</a>
+    {% endfor %}
     </div>
-    <div class="row"><div class="col text-center pb-5"><img src="images/categories2/Food-In-Lebanon.jpg" alt=""></div></div>
-    <div class="row"><h1 class="col text-center">Cuisine Asiatique</h1></div>
-    <div class="row"><div class="col text-center pb-5"><img src="images/categories2/asiatique2.jpg" alt=""></div></div>
-    <div class="row"><h1 class="col text-center">Cusine d'Amerique Latine</h1></div>
-    <div class="row gy-7"><div class="col text-center pb-5"><img src="images/categories2/ameriquelatine2.jpg" alt=""></div></div>
-    <div class="row"><h1 class="col text-center">Cusine Européenne</h1></div>
-    <div class="row gy-7"><div class="col text-center pb-5"><img src="images/categories2/europeene.jpg" alt=""></div></div>
-    <div class="row"><h1 class="col text-center">Cuisine Créole</h1></div>
-    <div class="row gy-7"><div class="col text-center pb-5"><img src="images/categories2/creole.jpg" alt=""></div></div>
-    <div class="row"><h1 class="col text-center">Cusines du Monde</h1></div>
-    <div class="row gy-7"><div class=" col text-center pb-5"><img src="images/categories2/cuisineDuMonde.jpg" alt=""></div></div>
-  </div>
 
 </div>
 </div>

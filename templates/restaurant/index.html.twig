@@ -8,21 +8,6 @@
 
 {% block body %}
     <div class="container"><div class="col text-center pb-5"><h1>Nom de categories</h1></div></div>
-
-    {#<table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Adresse</th>
-                <th>Description</th>
-                <th>Nationalite</th>
-                <th>Specificite</th>
-                <th>Prix_moyen</th>
-                <th>Photo</th>
-                <th>actions</th>
-            </tr>
-        </thead>#}
         <tbody>
         {% for restaurant in restaurants %}
         <div class="container par_cat">
@@ -35,7 +20,7 @@
                                 <p class="card-text">{{ restaurant.description }}</p>
                             </div>
                             <div class="card-body">
-                                <a href="{{ path('restaurant_show', {'id': restaurant.id}) }}">show</a>
+                                <a href="{{ path('restaurant_show', {'id': restaurant.id}) }}">Voir</a>
                                 {% if is_granted("ROLE_ADMIN") %}
                                 <a href="{{ path('admin_restaurant_edit', {'id': restaurant.id}) }}">Modifier</a>
                                 {% endif %}

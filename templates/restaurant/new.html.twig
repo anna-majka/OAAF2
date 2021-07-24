@@ -1,16 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Restaurant{% endblock %}
+{% block title %}Nouveau Restaurant{% endblock %}
 
 {% block body %}
 
     <div class="container par_cat">
         <div class="row align-items-center">
             <div class="col">
-                <h1>Create new Restaurant</h1>
+                <h1>Ajouter un Restaurant</h1>
 
                  <div class="col">{{ include('restaurant/_form.html.twig') }}</div>
-                <a href="{{ path('restaurant_index') }}">back to list</a>
+                <a href="{{ path('restaurant_index') }}">Retour à la liste</a>
             </div>
         </div>
     </div>
