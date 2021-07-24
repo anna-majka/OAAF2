@@ -4,12 +4,13 @@
   <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
     <button class="dropdown-item " type="button"><a href="{{path('home2')}}">Accueil</a>
     </button>
-    
-    <button class="dropdown-item " type="button">Catégories</button>
     <button class="dropdown-item " type="button">Contactez-nous</button>
-    <button class="dropdown-item " type="button">Connexion</button>
-     <button class="dropdown-item " type="button">Inscription</button>
-     <button class="dropdown-item " type="button">Deconnexion</button>
+    {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+     <button class="dropdown-item " type="button"><a href="{{path('app_logout')}}">Déconnexion</a></button>
+    {% else %}
+    <button class="dropdown-item " type="button"><a href="{{path('app_login')}}">Connexion</a></button>
+    <button class="dropdown-item " type="button"><a href="{{path('app_inscription')}}">Inscription</a></button>
+    {% endif %}
   </div>
 </div>
 
