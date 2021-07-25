@@ -7,6 +7,9 @@
     <button class="dropdown-item " type="button">Contactez-nous</button>
     {% if is_granted("IS_AUTHENTICATED_FULLY") %}
      <button class="dropdown-item " type="button"><a href="{{path('app_logout')}}">Déconnexion</a></button>
+     {% if is_granted("ROLE_ADMIN") %}
+     <button class="dropdown-item " type="button"><a href="{{path('admin')}}">Page admin</a></button>
+     {% endif %}
     {% else %}
     <button class="dropdown-item " type="button"><a href="{{path('app_login')}}">Connexion</a></button>
     <button class="dropdown-item " type="button"><a href="{{path('app_inscription')}}">Inscription</a></button>
@@ -18,5 +21,5 @@
   <!--TITRE & LOGO-->
   <div class="header overflow-hidden">
     <div class="col text-center pb-3"><h2>OAAF PROJECT</h2></div>
-    <div class="row"><div class="col text-center pb-5"><img src="../../images/icons/oaafLogo.png" alt="Logo OAAF"></div></div>
+    <div class="row"><div class="col text-center pb-5"><a href="{{path('home2')}}"><img src="../../images/icons/oaafLogo.png" alt="Logo OAAF"></a></div></div>
   </div>
