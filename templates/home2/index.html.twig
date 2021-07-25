@@ -16,10 +16,10 @@
   <!--CATEGORIES DE RESTAURANTS-->
   <div class="container overflow-hidden">
     {% for categorie in categories %}
-      <h1>{{ categorie.cat }}</h1>
-      <img src="{{ categorie.photo }}" alt="photo de {{ categorie.cat }}">
-      <h2>{{ categorie.description }}</h2>
-      <a href="{{ path('restaurant_par_cat', {'cat': categorie.id}) }}">Voir la catégorie</a>
+      <div class="row"><div class="col text-center pb-3 pt-3"><h1>{{ categorie.cat }}</h1></div></div>
+      <div class="row"><div class="col text-center pb-3 pt-3"><img src="{{ categorie.photo }}" alt="photo de {{ categorie.cat }}"></div></div>
+      <div class="row"><div class="col text-center pb-3 pt-3"><h4 class="h3 mb-3 font-weight-normal">{{ categorie.description }}</h4></div></div>
+      <div class="row"><div class="col text-center pb-5 pt-3"><a class="btn btn-secondary btn-md" href="{{ path('restaurant_par_cat', {'cat': categorie.id}) }}">Voir la catégorie</a></div></div>
     {% endfor %}
     </div>
 
