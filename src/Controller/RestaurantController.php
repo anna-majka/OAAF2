@@ -87,8 +87,10 @@ class RestaurantController extends AbstractController
      */
     public function show(Restaurant $restaurant): Response
     {
+        $categorie = $restaurant->getCategorieId();
         return $this->render('restaurant/show.html.twig', [
             'restaurant' => $restaurant,
+            'categorie' => $categorie
         ]);
     }
 

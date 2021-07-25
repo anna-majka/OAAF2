@@ -48,7 +48,7 @@
     <div class="col-4 paddingBottom">
         
 
-        <a href="{{ path('home2') }}">Retour à l'accueil</a>
+        <a href="{{ path('restaurant_par_cat', {'cat':categorie.id}) }}">Retour à la catégorie</a>
 
         {% if is_granted("ROLE_ADMIN") %}
         <a href="{{ path('restaurant_edit', {'id': restaurant.id}) }}">Modifier</a>

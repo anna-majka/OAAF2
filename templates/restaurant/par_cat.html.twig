@@ -8,7 +8,6 @@
             <img src="{{restaurant.photo}}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{ restaurant.nom }}</h5>
-                    <p class="card-text">{{ restaurant.description }}</p>
                     <a href="{{ path('restaurant_show', {'id': restaurant.id}) }}">Voir le restaurant</a>
                     {% if is_granted("ROLE_ADMIN") %}
                     <a href="{{ path('admin_restaurant_edit', {'id': restaurant.id}) }}">Modifier</a>

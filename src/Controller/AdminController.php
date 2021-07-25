@@ -46,7 +46,7 @@ class AdminController extends AbstractController
             if ($form->isSubmitted() && $form->isValid()) {
                 
                 $entityManager = $this->getDoctrine()->getManager();
-                $imagesDirectory = "images/uploads/";
+                $imagesDirectory = "/images/uploads/";
                 // donc, on commence par récuperer ce qui a été uploadé
                 $imageFile = $form->get('photo')->getData();
                 // on test, au cas ou
