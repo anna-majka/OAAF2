@@ -4,10 +4,10 @@
 {% block body %}
 <div class="row d-flex justify-content-center text-center">
 {% for restaurant in restaurants %}
-        <div class="card m-1" style="width: 18rem;">
-            <img src="{{restaurant.photo}}" class="card-img-top" alt="photo de {{ restaurant.nom }}">
+        <div class="card m-1 border border-dark" style="width: 18rem;">
+            <img src="/{{restaurant.photo}}" class="card-img-top h-50" alt="photo de {{ restaurant.nom }}">
                 <div class="card-body">
-                    <h5 class="card-title">{{ restaurant.nom }}</h5>
+                    <h5 class="card-title pt-3">{{ restaurant.nom }}</h5>
                     <a href="{{ path('restaurant_show', {'id': restaurant.id}) }}">Voir le restaurant</a>
                     {% if is_granted("ROLE_ADMIN") %}
                     <a href="{{ path('admin_restaurant_edit', {'id': restaurant.id}) }}">Modifier</a>

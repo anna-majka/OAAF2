@@ -34,6 +34,7 @@
                     <a href="{{ path('restaurant_show', {'id': restaurant.id}) }}">Afficher</a>
                     {% if is_granted("ROLE_ADMIN") %}
                     <a href="{{ path('admin_restaurant_edit', {'id': restaurant.id}) }}">Modifier</a>
+                    <a href="{{ path('admin_restaurant_publier', {'id': restaurant.id}) }}">Publier</a>
                     {% endif %}
                 </td>
             </tr>

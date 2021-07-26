@@ -22,6 +22,15 @@
     {% endfor %}
     </div>
 
+    {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+    <div class="col text-center pb-5 pt-5">
+        <a href="{{ path('restaurant_new') }}">
+            <button class="btn btn-secondary" type="submit">
+            Proposer un restaurant
+            </button>
+        </a>
+    </div>
+    {% endif %}
 </div>
 </div>
 

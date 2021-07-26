@@ -7,13 +7,14 @@
 {% block body %}
 <div class="row d-flex justify-content-center text-center">
     {% for restaurant in restaurants %}
-            <div class="card m-1" style="width: 18rem;">
-                <img src="{{restaurant.photo}}" class="card-img-top" alt="photo de {{ restaurant.nom }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ restaurant.nom }}</h5>
-                        <a href="{{ path('restaurant_show', {'id': restaurant.id}) }}">Voir le restaurant</a>
+            <div class="card m-1 border border-dark" style="width: 18rem;">
+                <div class="card-body">
+                <img src="/{{restaurant.photo}}" class="card-img-top h-50" alt="photo de {{ restaurant.nom }}">   
+                        <h5 class="card-title pt-3">{{ restaurant.nom }}</h5>
+                        <a href="{{ path('restaurant_show', {'id': restaurant.id}) }}"><button class="btn btn-secondary" type="submit">Voir le restaurant</button></a>
                         {% if is_granted("ROLE_ADMIN") %}
-                        <a href="{{ path('admin_restaurant_edit', {'id': restaurant.id}) }}">Modifier</a>
+                        <br>
+                        <a href="{{ path('admin_restaurant_edit', {'id': restaurant.id}) }}" style="text-decoration:underline;"> Modifier</a>
                         {% endif %}
                     </div>
             </div>
@@ -24,17 +25,13 @@
      
   <div class="row">
     <div class="col text-center pb-5 pt-5">
-        <a href="{{path('home2')}}">
-            <button class="btn btn-secondary" type="submit">
+        <a href="{{path('home2')}}" style="text-decoration:underline;">
             Retour à l'accueil
-            </button>
         </a>
     </div>
     <div class="col text-center pb-5 pt-5">
-        <a href="{{ path('restaurant_new') }}">
-            <button class="btn btn-secondary" type="submit">
+        <a href="{{ path('restaurant_new') }}" style="text-decoration:underline;">
             Proposer un restaurant
-            </button>
         </a>
     </div>
 </div>
