@@ -5,7 +5,7 @@
 <div class="row d-flex justify-content-center text-center">
 {% for restaurant in restaurants %}
         <div class="card m-1" style="width: 18rem;">
-            <img src="{{restaurant.photo}}" class="card-img-top" alt="photo de {{ restaurant.nom }}" style="overflow:hidden">
+            <img src="{{restaurant.photo}}" class="card-img-top" alt="photo de {{ restaurant.nom }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ restaurant.nom }}</h5>
                     <a href="{{ path('restaurant_show', {'id': restaurant.id}) }}">Voir le restaurant</a>
