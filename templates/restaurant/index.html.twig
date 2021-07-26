@@ -1,62 +1,42 @@
 {% extends 'base.html.twig' %}
 
-
-
 {% block title %}Restaurant index{% endblock %}
 {% block stylesheets %}{% endblock %}
 
 
 {% block body %}
-    <div class="container"><div class="col text-center pb-5"><h1>Nom de categories</h1></div></div>
-        <tbody>
-        {% for restaurant in restaurants %}
-        <div class="container par_cat">
-            <div class="row align-items-start">
-                <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <img src="../images/categories2/Food-In-Lebanon.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ restaurant.nom }}</h5>
-                                <p class="card-text">{{ restaurant.description }}</p>
-                            </div>
-                            <div class="card-body">
-                                <a href="{{ path('restaurant_show', {'id': restaurant.id}) }}">Voir</a>
-                                {% if is_granted("ROLE_ADMIN") %}
-                                <a href="{{ path('admin_restaurant_edit', {'id': restaurant.id}) }}">Modifier</a>
-                                {% endif %}
-                            </div>
+<div class="row d-flex justify-content-center text-center">
+    {% for restaurant in restaurants %}
+            <div class="card m-1" style="width: 18rem;">
+                <img src="{{restaurant.photo}}" class="card-img-top" alt="photo de {{ restaurant.nom }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ restaurant.nom }}</h5>
+                        <a href="{{ path('restaurant_show', {'id': restaurant.id}) }}">Voir le restaurant</a>
+                        {% if is_granted("ROLE_ADMIN") %}
+                        <a href="{{ path('admin_restaurant_edit', {'id': restaurant.id}) }}">Modifier</a>
+                        {% endif %}
                     </div>
-        
-                </div>
             </div>
-        </div>
-        
-{# 
-            <tr>
-                <td>{{ restaurant.id }}</td>
-                <td>{{ restaurant.nom }}</td>
-                <td>{{ restaurant.adresse }}</td>
-                <td>{{ restaurant.description }}</td>
-                <td>{{ restaurant.nationalite }}</td>
-                <td>{{ restaurant.specificite }}</td>
-                <td>{{ restaurant.prixMoyen }}</td>
-                <td>{{ restaurant.photo }}</td>
-                <td>
-                    <a href="{{ path('restaurant_show', {'id': restaurant.id}) }}">Afficher</a>
-                    {% if is_granted("ROLE_ADMIN") %}
-                    <a href="{{ path('restaurant_edit', {'id': restaurant.id}) }}">Modifier</a>
-                    {% endif %}
-                </td>
-            </tr>#}
-        {% else %}
-            <tr>
-                <td colspan="9">Pas de restaurants</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-  <div class="row"><div class="col text-center pb-5 pt-5"><button class="btn btn-secondary" type="submit">
-        <a href="{{ path('restaurant_new') }}">Create new</a><!--CHANGER A HREF EN BOUTTON SI POSSIBLE, SINON IL S'AFFICHE BIZARREMENT-->
-    </button></div></div>
+    {% else %}
+    <p> Pas de restaurants sur le site </p>
+    {% endfor %}
+</div>
+     
+  <div class="row">
+    <div class="col text-center pb-5 pt-5">
+        <a href="{{path('home2')}}">
+            <button class="btn btn-secondary" type="submit">
+            Retour à l'accueil
+            </button>
+        </a>
+    </div>
+    <div class="col text-center pb-5 pt-5">
+        <a href="{{ path('restaurant_new') }}">
+            <button class="btn btn-secondary" type="submit">
+            Proposer un restaurant
+            </button>
+        </a>
+    </div>
+</div>
  
 {% endblock %}

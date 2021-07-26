@@ -6,13 +6,13 @@
 {% block body %}
 <div class="container">
     <div class="row">
-    <div class="col-4 px-5"><h1>Restaurant</h1></div>
+    <div class="col-4 px-5"><h1>{{ restaurant.nom }}</h1></div>
     </div>
 <aside>
-    <img src="{{ restaurant.photo }}" alt="photo de {{ restaurant.nom }}">
+    
 </aside>
     <div class="row">
-        <div class="col-4 px">
+    <img src="{{ restaurant.photo }}" alt="photo de {{ restaurant.nom }}">
             <table class="table">
                 <tbody>
                     <tr>
@@ -28,11 +28,11 @@
                         <td>{{ restaurant.description }}</td>
                     </tr>
                     <tr>
-                        <th>Nationalite</th>
+                        <th>Cuisine</th>
                         <td>{{ restaurant.nationalite }}</td>
                     </tr>
                     <tr>
-                        <th>Specificite</th>
+                        <th>Spécificité</th>
                         <td>{{ restaurant.specificite }}</td>
                     </tr>
                     <tr>
@@ -41,17 +41,25 @@
                     </tr>
                     </tbody>
                     </table>
-        </div>
     </div>
 
 <div class="row">
-    <div class="col-4 paddingBottom">
+    <div class="paddingBottom">
+        
+    <a href="{{ path('restaurant_par_cat', {'cat':categorie.id}) }}">
+        <button class="btn btn-secondary">
+        Retour à la catégorie
+        </button>
+    </a>
         
 
-        <a href="{{ path('restaurant_par_cat', {'cat':categorie.id}) }}">Retour à la catégorie</a>
-
         {% if is_granted("ROLE_ADMIN") %}
-        <a href="{{ path('restaurant_edit', {'id': restaurant.id}) }}">Modifier</a>
+        <a href="{{ path('restaurant_edit', {'id': restaurant.id}) }}">
+            <button class="btn btn-secondary">
+            Modifier
+            </button>
+        </a>
+    
         {{ include('restaurant/_delete_form.html.twig') }}
         {% endif %}
     </div>

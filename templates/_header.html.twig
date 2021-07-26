@@ -2,17 +2,16 @@
 <div class="dropdown ">
   <button class="btn dropdown-toggle " type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</button>
   <div class="dropdown-menu " aria-labelledby="dropdownMenu2">
-    <button class="dropdown-item " type="button"><a href="{{path('home2')}}">Accueil</a>
-    </button>
-    <button class="dropdown-item " type="button">Contactez-nous</button>
+    <a href="{{path('home2')}}"><button class="dropdown-item " type="button">Accueil</button></a>
+    {# <button class="dropdown-item " type="button">Contactez-nous</button> #}
     {% if is_granted("IS_AUTHENTICATED_FULLY") %}
-     <button class="dropdown-item " type="button"><a href="{{path('app_logout')}}">Déconnexion</a></button>
+     <a href="{{path('app_logout')}}"><button class="dropdown-item " type="button">Déconnexion</button></a>
      {% if is_granted("ROLE_ADMIN") %}
-     <button class="dropdown-item " type="button"><a href="{{path('admin')}}">Page admin</a></button>
+     <a href="{{path('admin')}}"><button class="dropdown-item " type="button">Page admin</button></a>
      {% endif %}
     {% else %}
-    <button class="dropdown-item " type="button"><a href="{{path('app_login')}}">Connexion</a></button>
-    <button class="dropdown-item " type="button"><a href="{{path('app_inscription')}}">Inscription</a></button>
+    <a href="{{path('app_login')}}"><button class="dropdown-item " type="button">Connexion</button></a>
+    <a href="{{path('app_inscription')}}"><button class="dropdown-item " type="button">Inscription</button></a>
     {% endif %}
   </div>
 </div>
