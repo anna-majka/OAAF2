@@ -19,4 +19,12 @@ class Home2Controller extends AbstractController
             'categories' => $categories,
         ]);
     }
+    /**
+     * @Route("/cgu", name="cgu")
+     */
+    public function cgu(): Response
+    {
+        return $this->render('_cgu.html.twig', [
+        ]);
+    }
 }
