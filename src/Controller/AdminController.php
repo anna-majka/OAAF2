@@ -46,7 +46,7 @@ class AdminController extends AbstractController
             if ($form->isSubmitted() && $form->isValid()) {
                 
                 $entityManager = $this->getDoctrine()->getManager();
-                $imagesDirectory = "/images/uploads/";
+                $imagesDirectory = "images/uploads/";
                 // donc, on commence par récuperer ce qui a été uploadé
                 $imageFile = $form->get('photo')->getData();
                 // on test, au cas ou
@@ -86,6 +86,17 @@ class AdminController extends AbstractController
         return $this->render('restaurant/a_valider.html.twig', [
             'restaurants' => $restaurants,
         ]);
+    }
+    /**
+     * @Route("/valider/{id}", name="admin_restaurant_publier", methods={"GET"})
+     */
+    public function publier(Restaurant $restaurant): Response
+    {
+        $restaurant->setPublier(true);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($restaurant);
+        $em->flush();
+        return $this->redirectToRoute('restaurant_index', [], Response::HTTP_SEE_OTHER);
     }
 }
 

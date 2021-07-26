@@ -5,6 +5,7 @@
     <a href="{{path('home2')}}"><button class="dropdown-item " type="button">Accueil</button></a>
     {# <button class="dropdown-item " type="button">Contactez-nous</button> #}
     {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+    <a href="{{ path('restaurant_new') }}"><button class="dropdown-item " type="button">Proposer un restaurant</button></a>
      <a href="{{path('app_logout')}}"><button class="dropdown-item " type="button">Déconnexion</button></a>
      {% if is_granted("ROLE_ADMIN") %}
      <a href="{{path('admin')}}"><button class="dropdown-item " type="button">Page admin</button></a>
