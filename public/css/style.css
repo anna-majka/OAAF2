@@ -3,7 +3,7 @@ body
   margin: 0;
   padding: 0;
   background-color: #eae7dc;
-  color: #8d8e8a;
+  color: #666666;
   font-family: 'Fira Sans', sans-serif;
 }
 
@@ -58,7 +58,7 @@ a:hover{
    border-radius: 2px;
    font-weight: bold;
    font-size: 20px;
-   font-family: 'Lora', serif;
+   font-family: 'Fira Sans', sans-serif;
    
 }
 
