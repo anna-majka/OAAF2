@@ -10,6 +10,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class RestaurantType extends AbstractType
 {
@@ -20,7 +21,12 @@ class RestaurantType extends AbstractType
             ->add('adresse')
             ->add('description')
             ->add('nationalite')
-            ->add('specificite')
+            ->add('specificite', TextType::class, array(
+                'required'=>false,
+                'attr'=> array(
+                    'placeholder'=> 'Vegan, Végétarien'
+                )
+            ))
             ->add('prix_moyen')
             ->add('photo', FileType::class, [
                 'label' => 'Ajouter une photo',
