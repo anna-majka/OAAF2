@@ -1,7 +1,7 @@
 # OAAF2
 Final project in the Webforce3 & Social Builder 6 months Bootcamp. 
 
-OAAF is a group project (2 front-end developers + 2 back-end developers) about exotic restaurants in Paris.
+OAAF is a group project (2 front-end developers (me & [@AlexEguiluz ](https://github.com/AlexEguiluz) ) + 2 back-end developers ([@Fat24](https://github.com/Fat24) & [@OrianneZ](https://github.com/OrianneZ) ) about exotic restaurants in Paris.
 
 ## What I learned
 * Group work, to collaborate
